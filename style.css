@@ -16,6 +16,8 @@ section {
     width: 300px;
     margin: 0 auto;
     border-radius: 5px;
+    border: 2px solid orange;
+    box-shadow: 1px 1px 0px grey;
 }
 
 section input {
