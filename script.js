@@ -4,8 +4,6 @@ function load() {
     // Output Text
     const output = document.querySelector("div#output");
 
-   
-    
     // First Row
     const mc = document.querySelector("main section ul li button#mc");
     const mr = document.querySelector("main section ul li button#mr");
@@ -42,47 +40,143 @@ function load() {
     const decimal = document.querySelector("main section ul li button#decimal");
     const equals = document.querySelector("main section ul li button#equals");
 
-    // Event Listeners for numbers
-    one.addEventListener("click", () => {
-        isUnderTwentyTwo(1);
+    // Event Listeners for top row
+    // Event Listeners for Clearing Screen (C)
+    clear.addEventListener("click", () => {
+        output.innerHTML = "";
     });
-    two.addEventListener("click", () => {
-        isUnderTwentyTwo(2);
+
+    // Event listener for deleting numbers
+    del.addEventListener("click", () => {
+        if (output.innerHTML.length > 1) {
+            output.innerHTML = output.innerHTML.substring(0, output.innerHTML.length - 1);
+        }
+        else {
+            output.innerHTML = "";
+        }
     });
-    three.addEventListener("click", () => {
-        isUnderTwentyTwo(3);
+
+    // Event listeners for 2nd row
+    // Event listener for the 1/x key
+    onex.addEventListener("click", () => {
+        if (output.innerHTML.length > 0) {
+            output.innerHTML = 1 / output.innerHTML;
+        }
     });
-    four.addEventListener("click", () => {
-        isUnderTwentyTwo(4);
+
+    // Event listener for the exponent button
+    exponent.addEventListener("click", () => {
+        if (output.innerHTML.length > 0) {
+        output.innerHTML = output.innerHTML * output.innerHTML;
+        }
     });
-    five.addEventListener("click", () => {
-        isUnderTwentyTwo(5);
+
+    // Event listener for the SqRt button
+    sqrt.addEventListener("click", () => {
+        output.innerHTML = Math.sqrt(output.innerHTML);
     });
-    six.addEventListener("click", () => {
-        isUnderTwentyTwo(6);
+
+    // Event listener for the divide button
+    divide.addEventListener("click", () => {
+        const lastEntry = parseInt(output.innerHTML.substring(output.innerHTML.length - 1));
+        
+        if (output.innerHTML.length > 0 && !isNaN(lastEntry) ) {
+            output.innerHTML = output.innerHTML += "/";
+        }
     });
+ 
+    // Event Listeners for 3rd Row
+    // Event Listener for 7 button
     seven.addEventListener("click", () => {
         isUnderTwentyTwo(7);
     });
+    // Event Listener for 8 button
     eight.addEventListener("click", () => {
         isUnderTwentyTwo(8);
     });
+    // Event listener for 9 button
     nine.addEventListener("click", () => {
         isUnderTwentyTwo(9);
     });
+    // Event listener for multiply button
+    multiply.addEventListener("click", () => {
+        if (output.innerHTML.length > 0) {
+            output.innerHTML += "*";
+        }
+    })
+
+    // Event listeners for 4th row
+    // Event listener for 4 button
+    four.addEventListener("click", () => {
+        isUnderTwentyTwo(4);
+    });
+    // Event listener for 5 button
+    five.addEventListener("click", () => {
+        isUnderTwentyTwo(5);
+    });
+    // Event listener for 6 button
+    six.addEventListener("click", () => {
+        isUnderTwentyTwo(6);
+    });
+    // Event listener for subtract button
+    subtract.addEventListener("click", () => {
+        if (output.innerHTML.length > 0) {
+            output.innerHTML += "-";
+        }
+    })
+    // Event listeners for 5th row
+    // Event listener for 1 button
+    one.addEventListener("click", () => {
+        isUnderTwentyTwo(1);
+    });
+    // Event listener for 2 button
+    two.addEventListener("click", () => {
+        isUnderTwentyTwo(2);
+    });
+    // Event listener for 3 button
+    three.addEventListener("click", () => {
+        isUnderTwentyTwo(3);
+    });
+    // Event listener for addition button
+    add.addEventListener("click", () => {
+        const lastEntry = parseInt(output.innerHTML.substring(output.innerHTML.length - 1));
+        console.log(lastEntry);
+        if (output.innerHTML > 0 && !isNaN(lastEntry)){
+            output.innerHTML += "+";
+        }
+    })
+    
     zero.addEventListener("click", () => {
         isUnderTwentyTwo(0);
     });
 
-    // Event listeners for top row
-    percent.addEventListener("click", () => {
-
-    });  
+   
 
     function isUnderTwentyTwo(number) {
         if (output.innerHTML.length <= 21) {
             output.innerHTML += number;
         }
     }
+
+    function hasSymbol(string) {
+        const isTrue = false;
+        switch (output.innerHTML.includes()){
+            case "/":
+                isTrue = true;
+                break;
+            case "+":
+                isTrue = true;
+                break;
+            case "-":
+                isTrue = true;
+                break;
+            case "*":
+                isTrue = true;
+                break;
+        }
+
+        return isTrue;
+    }
+
 }
     
