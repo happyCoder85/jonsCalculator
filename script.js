@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", load);
 
 function load() {
+    // Output Text
+    const output = document.querySelector("div#output");
+
+   
+    
     // First Row
     const mc = document.querySelector("main section ul li button#mc");
     const mr = document.querySelector("main section ul li button#mr");
@@ -36,4 +41,48 @@ function load() {
     const zero = document.querySelector("main section ul li button#zero");
     const decimal = document.querySelector("main section ul li button#decimal");
     const equals = document.querySelector("main section ul li button#equals");
+
+    // Event Listeners for numbers
+    one.addEventListener("click", () => {
+        isUnderTwentyTwo(1);
+    });
+    two.addEventListener("click", () => {
+        isUnderTwentyTwo(2);
+    });
+    three.addEventListener("click", () => {
+        isUnderTwentyTwo(3);
+    });
+    four.addEventListener("click", () => {
+        isUnderTwentyTwo(4);
+    });
+    five.addEventListener("click", () => {
+        isUnderTwentyTwo(5);
+    });
+    six.addEventListener("click", () => {
+        isUnderTwentyTwo(6);
+    });
+    seven.addEventListener("click", () => {
+        isUnderTwentyTwo(7);
+    });
+    eight.addEventListener("click", () => {
+        isUnderTwentyTwo(8);
+    });
+    nine.addEventListener("click", () => {
+        isUnderTwentyTwo(9);
+    });
+    zero.addEventListener("click", () => {
+        isUnderTwentyTwo(0);
+    });
+
+    // Event listeners for top row
+    percent.addEventListener("click", () => {
+
+    });  
+
+    function isUnderTwentyTwo(number) {
+        if (output.innerHTML.length <= 21) {
+            output.innerHTML += number;
+        }
+    }
 }
+    
