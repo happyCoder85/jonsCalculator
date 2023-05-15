@@ -60,4 +60,10 @@ div#output {
     text-align: right;
 }
 
+main section li button span.super {
+    vertical-align: super;
+}
 
+main section li button span.sub {
+    vertical-align: sub;
+}
